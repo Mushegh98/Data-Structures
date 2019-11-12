@@ -117,7 +117,12 @@ namespace List
                     {
                         capacity *= 2;
                         T[] newmylist = new T[capacity];
-                        mylist.CopyTo(newmylist, 0);
+                         for (int k = 0, p = 0; k < count; k++, p++)
+                        {
+
+                            newmylist[p] = mylist[k];
+
+                        }
                         mylist = new T[capacity];
                         newmylist.CopyTo(mylist, 0);
                         
