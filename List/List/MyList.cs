@@ -40,7 +40,20 @@ namespace List
         /// <summary>
         /// Можно задавать или получить емкость коллекции
         /// </summary>
-        public int Capacity { get { return capacity; } set { capacity = value; } }
+       public int Capacity
+        { 
+            get { return capacity; }
+            set {
+                     if (value > 0)
+                     {
+                        capacity = value;
+                     }
+                     else
+                     {
+                        throw new Exception("Capacity меньше нулья!");
+                     }
+                }
+        }
         /// <summary>
         /// Добавляет элемент в конец коллекции
         /// </summary>
@@ -57,7 +70,12 @@ namespace List
             {
                 capacity *= 2;
                 T[] newmylist = new T[capacity];
-                mylist.CopyTo(newmylist, 0);
+                 for (int i = 0, j = 0; i < count; i++, j++)
+                {
+
+                    newmylist[j] = mylist[i];
+
+                }
                 mylist = new T[capacity];
                 newmylist.CopyTo(mylist, 0);
                 Add(element);
