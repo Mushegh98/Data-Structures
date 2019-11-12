@@ -50,7 +50,7 @@ namespace List
                      }
                      else
                      {
-                        throw new Exception("Capacity меньше нулья!");
+                        throw new Exception("Capacity меньше или равно нулью!");
                      }
                 }
         }
